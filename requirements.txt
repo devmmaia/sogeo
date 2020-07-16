@@ -3,3 +3,4 @@ psycopg2-binary>=2.8
 djangorestframework
 git+git://github.com/devmmaia/django-zora-messages#egg=django-zora-messages
 coverage
+flake8==3.8.3
