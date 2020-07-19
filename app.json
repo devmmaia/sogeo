@@ -2,7 +2,10 @@
     "environments": {
       "test": {
         "scripts": {
-          "test": "python manage.py test"
+          "test":  "python manage.py test",
+          "deploy": "docker run"
+           
+           
         }
       }
     }
