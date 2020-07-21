@@ -3,8 +3,9 @@ build:
         web: Dockerfile
 
 release:
-    - python manage.py makemigrations
-    - python manage.py migrate
+    command:
+        - python manage.py makemigrations
+        - python manage.py migrate
 run:
     web: gunicorn sogeo.wsgi:application --bind 0.0.0.0:$PORT
 
