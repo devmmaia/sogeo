@@ -6,6 +6,10 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
+# enabling shell to dyno
+COPY heroku-exec.sh /app/.profile.d
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # collect static files
 RUN python manage.py collectstatic --noinput
 RUN python manage.py makemigrations
