@@ -17,4 +17,4 @@ RUN python manage.py migrate
 # run gunicorn
 RUN useradd -m sogeouser
 USER sogeouser
-CMD gunicorn sogeo.wsgi:application --bind 0.0.0.0:$PORT
+CMD bash /app/.profile.d/heroku-exec.sh && gunicorn sogeo.wsgi:application --bind 0.0.0.0:$PORT
