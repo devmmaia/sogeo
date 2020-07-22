@@ -135,4 +135,7 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+SESSION_COOKIE_DOMAIN = ""
+
 django_heroku.settings(locals())
