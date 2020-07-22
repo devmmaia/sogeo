@@ -7,7 +7,7 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 # enabling shell to dyno
-COPY heroku-exec.sh /app/.profile.d
+COPY heroku-exec.sh /code/
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # collect static files
@@ -17,4 +17,4 @@ RUN python manage.py migrate
 # run gunicorn
 RUN useradd -m sogeouser
 USER sogeouser
-CMD bash /app/.profile.d/heroku-exec.sh && gunicorn sogeo.wsgi:application --bind 0.0.0.0:$PORT
+CMD bash heroku-exec.sh && gunicorn sogeo.wsgi:application --bind 0.0.0.0:$PORT
